@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     currentWWID: String;
     showSearchResults: Boolean;
     searchResults: any = {};
+    errorMessage: String;
 
     constructor(
         private fb: FormBuilder,
@@ -50,14 +51,15 @@ export class HomeComponent implements OnInit {
     }
 
     getSearchResults(searchTerm: string) {
+        this.errorMessage = '';
         this.searchService.getDetails({ wwid: searchTerm })
         .subscribe(res => {
             this.showSearchResults = true;
-            this.searchResults = res;
+            this.searchResults = res['employeeDetails'];
         }, err => {
-            this.showSearchResults = true;
+            this.errorMessage = 'Please type different WWID';
+            this.showSearchResults = false;
         })
-        this.showSearchResults = true;
     }
 
     resetSearchForm(): void {

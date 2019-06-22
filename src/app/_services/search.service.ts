@@ -6,8 +6,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class SearchService {
     constructor(private http: HttpClient) { }
 
-    getDetails(query: Object = {}) {
-        return this.http.get(`${config.apiUrl}/search?${query}`);
+    getDetails(query: any) {
+        if (query) {
+            query = `?wwid=${query.wwid}`
+        }
+        return this.http.get(`${config.apiUrl}/getEmployee{query}`);
     }
 
     updateDetails(details: any) {
