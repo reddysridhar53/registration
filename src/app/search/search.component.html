@@ -1,0 +1,52 @@
+﻿<div class="search-results">
+    <div class="header">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active">Go Back</a>
+    </div>
+    <div class="content">
+        <form [formGroup]="detailsForm" (ngSubmit)="updateDetails()">
+            <div class="form-group">
+                <div class="key">WWID:</div>
+                <div *ngIf="details.wwid" class="value" formControlName="wwid">{{details.wwid}}</div>
+                <input *ngIf="!details.wwid" class="value" formControlName="wwid" />
+            </div>
+            <div class="form-group">
+                <div class="key">Name:</div>
+                <div *ngIf="details.name" class="value" formControlName="name">{{details.name}}</div>
+                <input *ngIf="!details.name" class="value" formControlName="name" />
+            </div>
+            <div class="form-group">
+                <div class="key">Business Unit:</div>
+                <div *ngIf="details.business_unit" class="value" formControlName="business_unit">{{details.business_unit}}</div>
+                <input *ngIf="!details.business_unit" class="value" formControlName="business_unit" />
+            </div>
+            <div class="form-group">
+                <div class="key">Delegate ID:</div>
+                <div *ngIf="details.delegate_id" class="value" formControlName="delegate_id">{{details.delegate_id}}</div>
+                <input *ngIf="!details.delegate_id" class="value" formControlName="delegate_id" />
+            </div>
+            <div class="form-group">
+                <div class="key">Booth Name</div>
+                <select formControlName="booth_id" (change)="changeBooth($event.target.value)">
+                    <option value="">Choose booth name</option>
+                    <option *ngFor="let booth of boothKeys" [value]="booth">
+                        {{booth}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="key">Activities</div>
+                <div class="activity-value">
+                    <div *ngFor="let activity of activities" class="activity">
+                        <label for="activity-{{activity.value}}">
+                            <input type="checkbox" id="activity-{{activity.value}}" [value]="activity.value"
+                                (change)="changeActivity($event.target.value)" 
+                            />
+                            {{activity.label}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn primary" [ngClass]="{'disabled': detailsForm.invalid}">update</button>
+        </form>
+    </div>
+</div>

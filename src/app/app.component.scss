@@ -1,0 +1,33 @@
+.navbar {
+    position: sticky;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    top: 0;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.9);
+    .nav-lhs {
+        .nav-item {
+            display: flex;
+            align-items: center;
+            .logo {
+                max-width: 50px;
+            }
+            .title {
+                color: rgba(255, 255, 255, 0.8);
+                margin-left: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                text-decoration: none;
+                &:hover {
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
+}
+.container {
+    width: 100%;
+}
