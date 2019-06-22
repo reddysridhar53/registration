@@ -6,27 +6,31 @@
         <form [formGroup]="detailsForm" (ngSubmit)="updateDetails()">
             <div class="form-group">
                 <div class="key">WWID:</div>
-                <div *ngIf="details.wwid" class="value" formControlName="wwid">{{details.wwid}}</div>
-                <input *ngIf="!details.wwid" class="value" formControlName="wwid" />
+                <input class="value" formControlName="WWID" />
             </div>
             <div class="form-group">
                 <div class="key">Name:</div>
-                <div *ngIf="details.name" class="value" formControlName="name">{{details.name}}</div>
-                <input *ngIf="!details.name" class="value" formControlName="name" />
+                <input class="value" formControlName="name" />
             </div>
             <div class="form-group">
                 <div class="key">Business Unit:</div>
-                <div *ngIf="details.business_unit" class="value" formControlName="business_unit">{{details.business_unit}}</div>
-                <input *ngIf="!details.business_unit" class="value" formControlName="business_unit" />
+                <input class="value" formControlName="businessUnit" />
             </div>
             <div class="form-group">
                 <div class="key">Delegate ID:</div>
-                <div *ngIf="details.delegate_id" class="value" formControlName="delegate_id">{{details.delegate_id}}</div>
-                <input *ngIf="!details.delegate_id" class="value" formControlName="delegate_id" />
+                <input class="value" formControlName="delegateID" />
+            </div>
+			 <div class="form-group">
+                <div class="key">Country Code:</div>
+                <input class="value" formControlName="countryCode" />
+            </div>
+			 <div class="form-group">
+                <div class="key">Employee Type:</div>
+                <input class="value" formControlName="employeeType" />
             </div>
             <div class="form-group">
                 <div class="key">Booth Name</div>
-                <select formControlName="booth_id" (change)="changeBooth($event.target.value)">
+                <select formControlName="boothID" (change)="changeBooth($event.target.value)">
                     <option value="">Choose booth name</option>
                     <option *ngFor="let booth of boothKeys" [value]="booth">
                         {{booth}}

@@ -19,6 +19,6 @@ export class SearchService {
             'Content-Type': 'application/json'
         });
 
-        return this.http.post(`${config.apiUrl}/save`, details, { headers });
+        return this.http.post(`${config.apiUrl}/updateActivity`, details, { headers });
     }
 }

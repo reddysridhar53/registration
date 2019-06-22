@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
     loading: Boolean;
     boothKeys: any = [];
     activities: any = [];
-    @Input() details = {};
+    @Input() details;
 
     chartOptions = {
         responsive: true
@@ -35,15 +35,15 @@ export class SearchComponent implements OnInit {
 
     ngOnInit() {
         this.detailsForm = this.formBuilder.group({
-            name: ['', Validators.required],
-            // employee_type: ['', Validators.required],
-            // country_code: ['', Validators.required],
-            // department_name: ['', Validators.required],
-            // delegate_id: ['', Validators.required],
-            business_unit: ['', Validators.required],
-            wwid: ['', Validators.required],
-            booth_id: ['', Validators.required],
-            activity: ['', Validators.required],
+            name: [this.details.name || '', Validators.required],
+            employeeType: [this.details.employeeType || '', Validators.required],
+            countryCode: [this.details.countryCode || '', Validators.required],
+            departmentNumber: [this.details.departmentNumber || '', Validators.required],
+            delegateID: [this.details.delegateID || '', Validators.required],
+            businessUnit: [this.details.businessUnit || '', Validators.required],
+            WWID: [this.details.WWID || '', Validators.required],
+            boothID: [this.details.boothID || '', Validators.required],
+            activity: [this.details.activity || [], Validators.required],
         });
 
         // get return url from route parameters or default to '/'
@@ -125,19 +125,19 @@ export class SearchComponent implements OnInit {
                     value: 1,
                 },
                 {
-                    label: 'first',
+                    label: 'd2',
                     value: 2,
                 },
                 {
-                    label: 'first',
+                    label: 'd3',
                     value: 3,
                 },
                 {
-                    label: 'first',
+                    label: 'd4',
                     value: 4,
                 },
                 {
-                    label: 'first',
+                    label: 'd5',
                     value: 5,
                 },
             ],
@@ -168,7 +168,7 @@ export class SearchComponent implements OnInit {
 
     changeBooth(booth) {
         this.detailsForm.patchValue({
-            booth_id: booth,
+            boothID: booth,
             activity: [],
         })
         this.activities = this.booths[booth];

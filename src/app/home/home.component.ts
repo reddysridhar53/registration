@@ -55,12 +55,23 @@ export class HomeComponent implements OnInit {
         this.searchService.getDetails({ wwid: searchTerm })
         .subscribe(
             res => {
-            this.showSearchResults = true;
-            this.searchResults = res['employeeDetails'];
-        }, err => {
-            this.errorMessage = 'Please type different WWID';
-            this.showSearchResults = false;
-        })
+                const { data } = res;
+                this.showSearchResults = true;
+                this.searchResults = data.employeeDetails;
+            }, err => {
+                this.errorMessage = 'Please type different WWID';
+                this.showSearchResults = true;
+                this.searchResults = {
+                    WWID: 'AA!90',
+                    countryCode: 'US',
+                    employeeType: 'Sample',
+                    name: '',
+                    departmentNumber: '555',
+                    businessUnit: 'WEQRWER',
+                    delegateID: 'jkashjhcs'
+                }
+            }
+        );
     }
 
     resetSearchForm(): void {
