@@ -11,6 +11,7 @@
                 />
             </div>
         </form>
+        <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
         <div class="action-bar">
             <button [ngClass]="{'disabled': !searchForm.valid || loading}" class="btn primary" (click)="submitSearch()">
                 <span *ngIf="!loading">Submit</span>

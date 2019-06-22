@@ -53,7 +53,8 @@ export class HomeComponent implements OnInit {
     getSearchResults(searchTerm: string) {
         this.errorMessage = '';
         this.searchService.getDetails({ wwid: searchTerm })
-        .subscribe(res => {
+        .subscribe(
+            res => {
             this.showSearchResults = true;
             this.searchResults = res['employeeDetails'];
         }, err => {
