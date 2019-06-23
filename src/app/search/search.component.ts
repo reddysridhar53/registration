@@ -40,11 +40,11 @@ export class SearchComponent implements OnInit {
         }
     };
     public barChartLabels: Label[] = ['AA001', 'BB001', 'CC001', 'DD001'];
-    public barChartType = 'bar';
+    public barChartType: ChartType = 'bar';
     public barChartLegend = true;
     public barChartPlugins = [];
     
-    public barChartData = [
+    public barChartData: ChartDataSets[] = [
         { 
             data: [4, 6, 5, 4],
             label: 'Activities' 
