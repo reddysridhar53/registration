@@ -1,7 +1,9 @@
 ﻿import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { SearchService } from '@/_services/search.service';
+import { Label } from 'ng2-charts';
 
 @Component({
     selector: 'search-results',
@@ -17,15 +19,37 @@ export class SearchComponent implements OnInit {
     activities: any = [];
     @Input() details;
 
-    chartOptions = {
-        responsive: true
+    public barChartOptions: ChartOptions = {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+            yAxes: [{
+                stacked: true,
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }],
+            xAxes: [{
+                stacked: true,
+                barPercentage: 0.5,
+                gridLines: {
+                    offsetGridLines: true
+                }
+            }]
+        }
     };
-    chartData = [
-        { data: [330, 600, 260, 700], label: 'Account A' },
-        { data: [120, 455, 100, 340], label: 'Account B' },
-        { data: [45, 67, 800, 500], label: 'Account C' }
+    public barChartLabels: Label[] = ['AA001', 'BB001', 'CC001', 'DD001'];
+    public barChartType = 'bar';
+    public barChartLegend = true;
+    public barChartPlugins = [];
+    
+    public barChartData = [
+        { 
+            data: [4, 6, 5, 4],
+            label: 'Activities' 
+        }
     ];
-    chartLabels = ['January', 'February', 'Mars', 'April'];
 
     constructor(
         private formBuilder: FormBuilder,

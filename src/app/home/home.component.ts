@@ -88,5 +88,6 @@ export class HomeComponent implements OnInit {
 
     clearSearchForm(): void {
         this.resetSearchForm();
+        this.errorMessage = '';
     }
 }

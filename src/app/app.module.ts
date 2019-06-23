@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
@@ -15,7 +16,8 @@ import { NotFoundComponent } from './four04';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
+        routing,
+        ChartsModule
     ],
     declarations: [
         AppComponent,

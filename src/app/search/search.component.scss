@@ -1,4 +1,5 @@
 .search-results {
+    font-family: 'Open Sans', sans-serif;
     .header {
         margin-bottom: 20px;
     }
@@ -67,4 +68,10 @@
             }
         }
     }
+}
+.chart-container {
+    margin-top: 20px;
+}
+.chart {
+    width: 60%;
 }

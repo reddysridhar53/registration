@@ -57,14 +57,16 @@
         </form>
     </div>
 </div>
-<div style="width: 40%;">
-    <!-- <canvas
-        baseChart
-        [chartType]="'line'"
-        [datasets]="chartData"
-        [labels]="chartLabels"
-        [options]="chartOptions"
-        [legend]="true"
-        (chartClick)="onChartClick($event)">
-    </canvas> -->
+<div class="chart-container">
+    <h2>Booth vs Activity</h2>
+    <div class="chart">
+        <canvas baseChart 
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+        </canvas>
+    </div>
 </div>
